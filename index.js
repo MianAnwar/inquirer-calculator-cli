@@ -5,7 +5,7 @@ async function askQuestions() {
         .prompt([
         {
             type: "list",
-            name: "op",
+            name: "operation",
             message: "Select the operation \n",
             choices: ["Add", "Subtract", "Multiple", "Divide"]
         },
@@ -13,18 +13,30 @@ async function askQuestions() {
             type: "number",
             name: "x",
             message: chalk.yellow("Enter 1st number: "),
-            filter(input, answers) {
-                if (typeof answers.x == 'number')
-                    return new Promise((r, rj) => { rj(); });
-            }
         },
         {
             type: "number",
             name: "y",
-            message: chalk.yellow("Enter 2nd number: ")
+            message: chalk.yellow("Enter 2nd number: "),
+            // filter(input, answers) {
+            //   if (typeof answers.x == 'number')
+            //     return new Promise((r, rj) => { rj(); });
+            // }
         }
     ]);
-    console.log(answers);
+    // console.log(answers)
+    if (answers.operation == 'Add')
+        console.log(chalk.redBright(`Result = \'${answers.x + answers.y}\'`));
+    else if (answers.operation == 'Subtract')
+        console.log(chalk.redBright(`Result = \'${answers.x - answers.y}\'`));
+    else if (answers.operation == 'Multiple')
+        console.log(chalk.redBright(`Result = \'${answers.x * answers.y}\'`));
+    else if (answers.operation == 'Divide') {
+        if (answers.y == 0)
+            console.log(chalk.redBright(`MAth Erro`));
+        else
+            console.log(chalk.redBright(`Result = \'${answers.x / answers.y}\'`));
+    }
 }
 async function startAgain() {
     do {
