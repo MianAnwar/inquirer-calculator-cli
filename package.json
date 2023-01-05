@@ -1,23 +1,19 @@
 {
-  "name": "miananwarcalculator",
+  "name": "testxcalculator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Here we test the npm",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MianAnwar/inquirer-calculator-cli"
+  },
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/chalk": "^2.2.0",
-    "@types/chalk-animation": "^1.6.1",
-    "@types/inquirer": "^9.0.3",
-    "@types/node": "^18.11.9"
-  },
+  "bin": "./index.js",
   "dependencies": {
-    "chalk": "^5.1.2",
+    "chalk": "^5.2.0",
     "chalk-animation": "^2.0.3",
     "inquirer": "^9.1.4"
   }
